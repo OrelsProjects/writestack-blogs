@@ -23,13 +23,14 @@ You can plan your Notes in advance and WriteStack will automatically publish the
 
 ## 🧩 Step 1 — Install the WriteStack Chrome Extension {#install-extension}
 
-To make scheduling work, you need the WriteStack Chrome Extension.
+The first thing you need to do to make scheduling work, you need the WriteStack Chrome Extension.
 
 👉 [Download the WriteStack Extension](https://chromewebstore.google.com/detail/writestack/emdlbnkhjpfcooclfbodmhkhkohcjaoa)
 
 Once installed, pin it to your Chrome toolbar for easy access.
 
 > **Note:** WriteStack works on any Chromium-based browser — such as **Google Chrome**, **Brave**, **Edge**, or **Arc**.
+> You can use the [Chromium Checker](https://chromiumchecker.com/) to check if your browser is Chromium-based (Open it from the browser you want to use WriteStack in).
 
 ---
 
@@ -98,8 +99,8 @@ This will fix all the warnings of all the notes that have a warning in a few sec
 
 ## 💻 How to Keep Your Computer On and Unlocked {#how-to-keep-your-computer-on-and-unlocked}
 
-For your scheduled Notes to post successfully, your computer must stay **on, awake, and unlocked** while WriteStack runs in your browser.  
-Here’s how to keep it that way without killing your battery or your sanity.
+For your scheduled Notes to post successfully, your computer must stay **on, awake, and unlocked** while Chrome (or any other Chromium-based browser) runs in your browser.  
+Here’s how:
 
 ---
 
