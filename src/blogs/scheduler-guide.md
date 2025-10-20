@@ -178,16 +178,3 @@ No. As long as your browser is open and the WriteStack extension is installed, y
 Your schedules won’t run. Reinstall the extension to resume scheduling.
 
 ---
-
-## 🎯 Quick Recap {#quick-recap}
-
-To make scheduling work smoothly:
-
-✅ Install the WriteStack Chrome Extension  
-✅ Keep your browser open  
-✅ Stay logged in to Substack  
-✅ Keep your computer on and unlocked  
-
----
-
-Made for writers who want to stay consistent — even when inspiration strikes at 2 AM.
