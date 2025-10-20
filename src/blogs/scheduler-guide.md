@@ -96,6 +96,74 @@ Here's how it looks:
 This will fix all the warnings of all the notes that have a warning in a few seconds.
 ![Fixing Scheduling Warnings](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/fixing-scheduling-warning.png)
 
+## 💻 How to Keep Your Computer On and Unlocked {#how-to-keep-your-computer-on-and-unlocked}
+
+For your scheduled Notes to post successfully, your computer must stay **on, awake, and unlocked** while WriteStack runs in your browser.  
+Here’s how to keep it that way without killing your battery or your sanity.
+
+---
+
+### 🖥️ Mac (macOS Ventura, Sonoma, or newer)
+
+#### Option 1 — Adjust System Settings
+1. Open **System Settings → Displays → Advanced...**  
+   Turn **off** “Prevent automatic sleeping when the display is off.”
+2. Go to **System Settings → Lock Screen**, then set:
+   - **Turn display off when inactive** → *Never* (or however long you need).
+   - **Require password after screen saver begins or display is turned off** → *Never* (optional if you’re around).
+3. Keep your Mac **plugged in** if possible. Sleep can still trigger on battery even if the display stays on.
+
+#### Option 2 — Use Amphetamine (recommended)
+👉 [Download Amphetamine (Mac App Store)](https://apps.apple.com/us/app/amphetamine/id937984704)
+
+Amphetamine is a free, trusted app that keeps your Mac awake on command.  
+Once installed:
+1. Click the ☕ icon in the top menu bar.  
+2. Choose **Indefinitely** or set a custom duration (like 2 hours).  
+3. (Optional) Create a “WriteStack” trigger so Amphetamine auto-activates whenever Chrome is running.
+
+Amphetamine prevents system sleep and can even keep the display awake if you enable that option.
+
+---
+
+### 🪟 Windows (Windows 10 & 11)
+
+#### Option 1 — Adjust Power Settings
+1. Go to **Settings → System → Power & battery → Screen and sleep.**
+2. Set the following:
+   - **On battery power, turn off my screen after** → *Never*
+   - **When plugged in, turn off my screen after** → *Never*
+   - **Put my device to sleep after** → *Never*
+3. Keep your computer **plugged in** during longer scheduling sessions.
+
+#### Option 2 — Use a “Stay Awake” Utility
+You can use one of these lightweight apps:
+
+- **[Caffeine for Windows](https://www.zhornsoftware.co.uk/caffeine/):** simulates a keypress every 59 seconds to prevent sleep.  
+- **[PowerToys Awake](https://learn.microsoft.com/en-us/windows/powertoys/awake):** built by Microsoft, lets you keep your PC awake indefinitely or for a set time without changing system settings.
+
+Both tools are safe, lightweight, and widely used to keep Windows awake during automation tasks.
+
+---
+
+### ⚡ Quick Recap
+
+- Keep Chrome or your Chromium-based browser **open** and logged into your Substack account.  
+- Make sure your computer stays **on and unlocked** (Amphetamine for Mac, Caffeine/PowerToys Awake for Windows).  
+- Plug in your device to prevent sleep triggers on battery.  
+
+That’s it — your WriteStack schedules will fire right on time.
+
+
+---
+
+## Personal Suggestions {#personal-suggestions}
+
+In this section, I'll share personal suggestions based on my experience and questions I've received from users.
+
+1. **Don't optimize for the algorithm** - This one makes or breaks some creators' consistency, because it's means that they have to schedule during the night, and then the computer locks. 
+What I personally do is I schedule my Notes during my working hours, so I know they are sent while I'm working and I don't need to worry about them.
+
 ---
 
 ## 💬 FAQ {#faq}
