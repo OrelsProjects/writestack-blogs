@@ -42,7 +42,7 @@ Once installed, pin it to your Chrome toolbar for easy access.
 
 That’s it — an alarm will be created in your browser for that time.
 
-![Schedule a Note](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/add-to-queue.png)
+![Schedule a Note](https://cdn.writestack.io/writestack-app/blogs/scheduler-guide/add-to-queue.png)
 
 ---
 
@@ -63,7 +63,7 @@ If any of these aren’t true when the schedule goes off, the Note won’t post.
 This is a Substack limitation. If anybody offers you a tool that schedules from their servers, you're putting your Substack account at risk.*
 
 Here's how it should look:
-![Scheduler Active](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/queue-example.png)
+![Scheduler Active](https://cdn.writestack.io/writestack-app/blogs/scheduler-guide/queue-example.png)
 
 ---
 
@@ -81,7 +81,7 @@ In order to resend the note, you can either:
 **Important:** If you miss a bunch of notes, they will not be sent in a batch when you open your Chrome. They will stay in the queue, marked as missed.
 
 Here's how a missed note looks:
-![Missed Note](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/missed-note.png)
+![Missed Note](https://cdn.writestack.io/writestack-app/blogs/scheduler-guide/missed-note.png)
 
 ### Schedule warning
 
@@ -92,10 +92,10 @@ Sometimes you will see a yellow triangle next to the scheduled note. That could 
 
 The third option is very rare. Now, if you see the warnings, you can easily fix it by clicking the "Fix scheduling warning" button.
 Here's how it looks:
-![Fix Scheduling Warning](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/fix-scheduling-warning.png)
+![Fix Scheduling Warning](https://cdn.writestack.io/writestack-app/blogs/scheduler-guide/fix-scheduling-warning.png)
 
 This will fix all the warnings of all the notes that have a warning in a few seconds.
-![Fixing Scheduling Warnings](https://apps-og-images.s3.us-east-1.amazonaws.com/write-room/blogs/scheduler-guide/fixing-scheduling-warning.png)
+![Fixing Scheduling Warnings](https://cdn.writestack.io/writestack-app/blogs/scheduler-guide/fixing-scheduling-warning.png)
 
 ## 💻 How to Keep Your Computer On and Unlocked {#how-to-keep-your-computer-on-and-unlocked}
 

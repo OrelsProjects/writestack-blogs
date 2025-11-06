@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "apps-og-images.s3.us-east-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.writestack.io",
+      },
     ],
   },
 };
