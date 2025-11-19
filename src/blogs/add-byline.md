@@ -16,9 +16,11 @@ Your guide to properly attributing authorship to your Substack articles with a b
 
 ---
 
-## 🎯 What is a Byline? {#what-is-byline}
+## 🔍 Why This Guide? {#why-this-guide}
 
-A byline is the author credit that appears at the top of your article, typically showing who wrote the piece. Adding a byline helps readers identify the author and gives proper credit for your work.
+If you didn't manage to find your publication when signing up to WriteStack, follow this guide.
+
+Adding a byline to at least one of your posts helps WriteStack identify and connect to your publication during the signup process.
 
 ---
 
@@ -98,6 +100,12 @@ Your byline will now appear on your article!
 
 ---
 
+## 💡 Temporary Byline for Signup {#temporary-byline}
+
+> 💡 **Tip:** If you don't want to keep the byline permanently, you can add it just for the WriteStack signup process, then remove it afterward using the same steps — simply go back to the byline settings and remove it.
+
+---
+
 ## 💬 FAQ {#faq}
 
 ### Can I add a byline to an already published post?
@@ -105,6 +113,9 @@ Yes. You can add a byline to any post, whether it's published or still in draft.
 
 ### Can I change the byline after adding it?
 Yes. You can edit or remove the byline at any time by going back into the post editor and modifying the byline settings.
+
+### Can I remove the byline after adding it?
+Yes. You can remove the byline at any time by going back into the post editor and click 'x' next to your name in the byline section.
 
 ---
 
