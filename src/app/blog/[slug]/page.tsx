@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { BlogPost } from "@/components/blog-post";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { Header } from "@/components/header";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { BlogPost as BlogPostType } from "@/types/blog";
 
@@ -13,8 +11,8 @@ interface BlogPageProps {
 }
 
 export default function BlogPage({ params }: BlogPageProps) {
-  const router = useRouter();
   const [post, setPost] = useState<BlogPostType | null>(null);
+  const [posts, setPosts] = useState<BlogPostType[]>([]);
   const [loading, setLoading] = useState(true);
   const [slug, setSlug] = useState<string>("");
 
@@ -25,6 +23,22 @@ export default function BlogPage({ params }: BlogPageProps) {
     };
     getSlug();
   }, [params]);
+
+  useEffect(() => {
+    // Load all posts for search
+    const loadPosts = async () => {
+      try {
+        const response = await fetch("/api/blogs");
+        if (response.ok) {
+          const data = await response.json();
+          setPosts(data || []);
+        }
+      } catch (error) {
+        console.error("Error loading posts:", error);
+      }
+    };
+    loadPosts();
+  }, []);
 
   useEffect(() => {
     if (!slug) return;
@@ -47,18 +61,10 @@ export default function BlogPage({ params }: BlogPageProps) {
     loadPost();
   }, [slug]);
 
-  const handleBackClick = () => {
-    router.push("/");
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <Skeleton className="h-9 w-32" />
-          </div>
-        </header>
+        <Header posts={posts} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-8">
             <div className="space-y-4">
@@ -75,19 +81,7 @@ export default function BlogPage({ params }: BlogPageProps) {
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
-        <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleBackClick}
-              className="gap-2"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Button>
-          </div>
-        </header>
+        <Header posts={posts} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <h1 className="text-4xl font-bold">Blog post not found</h1>
         </div>
@@ -97,19 +91,7 @@ export default function BlogPage({ params }: BlogPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleBackClick}
-            className="gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Blog
-          </Button>
-        </div>
-      </header>
+      <Header posts={posts} />
       <BlogPost post={post} />
     </div>
   );

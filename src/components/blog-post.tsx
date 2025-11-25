@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import { TableOfContents } from "@/components/table-of-contents";
+import { ImageModal } from "@/components/image-modal";
 import { extractHeadings } from "@/lib/markdown";
 import { Skeleton } from "./ui/skeleton";
 import type { BlogPost as BlogPostType, Heading } from "@/types/blog";
@@ -34,6 +35,7 @@ export function BlogPost({ post }: BlogPostProps) {
   const [content, setContent] = useState<string>("");
   const [parsedHeadings, setParsedHeadings] = useState<Heading[]>([]);
   const [loading, setLoading] = useState(true);
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     const loadContent = async () => {
@@ -127,14 +129,33 @@ export function BlogPost({ post }: BlogPostProps) {
               remarkPlugins={[remarkGfm]}
               components={{
                 // Links open in new tab
-                a: ({ node, ...props }) => (
-                  <a
-                    {...props}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  />
-                ),
+                a: ({ ...props }) => {
+                  // Check if it's an internal link (starts with /?post=)
+                  const href = props.href || "";
+                  const isInternalLink = href.startsWith("/?post=");
+                  
+                  if (isInternalLink) {
+                    return (
+                      <a
+                        {...props}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = href;
+                        }}
+                        className="text-primary hover:underline cursor-pointer"
+                      />
+                    );
+                  }
+                  
+                  return (
+                    <a
+                      {...props}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    />
+                  );
+                },
 
                 // Headings with custom ID support
                 h1: ({ children, ...props }) => {
@@ -213,6 +234,20 @@ export function BlogPost({ post }: BlogPostProps) {
                     {children}
                   </pre>
                 ),
+
+                // Images with shadow and rounded corners
+                img: ({ src, alt, ...props }) => {
+                  const imageSrc = typeof src === "string" ? src : "";
+                  return (
+                    <img
+                      src={imageSrc}
+                      alt={alt || ""}
+                      className="shadow-md rounded-lg my-4 w-1/2 h-auto transition-transform duration-300 hover:scale-[1.3] cursor-pointer"
+                      onClick={() => setModalImage({ src: imageSrc, alt: alt || "" })}
+                      {...props}
+                    />
+                  );
+                },
               }}
             >
               {content}
@@ -226,6 +261,16 @@ export function BlogPost({ post }: BlogPostProps) {
           </div>
         </aside>
       </div>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <ImageModal
+          isOpen={!!modalImage}
+          imageSrc={modalImage.src}
+          imageAlt={modalImage.alt}
+          onClose={() => setModalImage(null)}
+        />
+      )}
     </div>
   );
 }

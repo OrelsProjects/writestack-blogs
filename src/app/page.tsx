@@ -1,7 +1,16 @@
 "use client";
 
-import { Blog } from "@/components/blog";
+import { Suspense } from "react";
+import { AppLayout } from "@/components/app-layout";
+
+function AppContent() {
+  return <AppLayout />;
+}
 
 export default function Home() {
-  return <Blog />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <AppContent />
+    </Suspense>
+  );
 }
