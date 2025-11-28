@@ -46,6 +46,47 @@ export function Sidebar({ posts, currentSlug }: SidebarProps) {
       sectionsMap.get(category)!.push(post);
     });
 
+    // Sort posts within each section by numeric prefix in filename
+    sectionsMap.forEach((sectionPosts) => {
+      // Get the original category name from the first post (all posts in section have same category)
+      const originalCategory = sectionPosts[0]?.category;
+      
+      // Helper to extract order number from slug/filename
+      const extractPostOrderNumber = (slug: string): number | null => {
+        if (!originalCategory) return null;
+        
+        // Remove category prefix from slug to get filename part
+        // e.g., "1-start-with-writestack-1-basics" -> "1-basics" (if category is "1-start-with-writestack")
+        const categorySlug = originalCategory.toLowerCase();
+        const filenamePart = slug.replace(new RegExp(`^${categorySlug}-`), "");
+        
+        // Extract numeric prefix from filename part
+        const match = filenamePart.match(/^(\d+)-/);
+        return match ? parseInt(match[1], 10) : null;
+      };
+
+      sectionPosts.sort((a, b) => {
+        const orderA = extractPostOrderNumber(a.slug);
+        const orderB = extractPostOrderNumber(b.slug);
+        
+        // If both have order numbers, sort by them
+        if (orderA !== null && orderB !== null) {
+          return orderA - orderB;
+        }
+        
+        // If only one has an order number, it comes first
+        if (orderA !== null && orderB === null) {
+          return -1;
+        }
+        if (orderA === null && orderB !== null) {
+          return 1;
+        }
+        
+        // If neither has an order number, sort alphabetically by title
+        return a.title.localeCompare(b.title);
+      });
+    });
+
     // Create sections array with ordering based on folder numbers
     const sectionsArray: Array<{ title: string; posts: BlogPost[] }> = [];
 
