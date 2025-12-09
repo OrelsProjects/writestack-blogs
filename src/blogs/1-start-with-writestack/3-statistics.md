@@ -10,7 +10,7 @@ updatedAt: 2025-12-10
 
 # 📊 How To Use Your Statistics {#using-statistics}
 
-This is your **practical**, no-fluff guide to making the most out of your WriteStack Stats page.
+This is your **practical** guide to making the most out of your WriteStack Stats page.
 
 Use this guide to learn:
 - how to interpret each chart  
