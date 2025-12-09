@@ -236,13 +236,32 @@ export function BlogPost({ post }: BlogPostProps) {
                 ),
 
                 // Images with shadow and rounded corners
-                img: ({ src, alt, ...props }) => {
+                img: ({ src, alt, title, ...props }) => {
                   const imageSrc = typeof src === "string" ? src : "";
+                  
+                  // Parse scale from title attribute (e.g., "scale=1.5")
+                  let scale = 1.0;
+                  let imageTitle = title;
+                  
+                  if (title && typeof title === "string") {
+                    const scaleMatch = title.match(/scale=([\d.]+)/i);
+                    if (scaleMatch) {
+                      scale = parseFloat(scaleMatch[1]);
+                      // Remove scale from title if it exists
+                      imageTitle = title.replace(/scale=[\d.]+/i, "").trim() || undefined;
+                    }
+                  }
+                  
+                  // Base width is 50% (w-1/2), apply scale multiplier
+                  const widthPercent = Math.min(100, 50 * scale);
+                  
                   return (
                     <img
                       src={imageSrc}
                       alt={alt || ""}
-                      className="shadow-md rounded-lg my-4 w-1/2 h-auto transition-transform duration-300 hover:scale-[1.3] cursor-pointer"
+                      title={imageTitle}
+                      style={{ width: `${widthPercent}%` }}
+                      className="shadow-md rounded-lg my-4 h-auto transition-transform duration-300 hover:scale-[1.3] cursor-pointer"
                       onClick={() => setModalImage({ src: imageSrc, alt: alt || "" })}
                       {...props}
                     />
